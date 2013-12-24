@@ -36,6 +36,18 @@ module.exports = function (map) {
 };
 ```
 
+### map.controller
+
+**Needs tests**
+
+Next to all http methods, the `map` object also provides a `controller` method which finds all available actions of a controller and creates `get` routes for it:
+
+```js
+module.exports = function (map) {
+  map.controller('index');
+};
+```
+
 ## Controllers
 
 Your custom controllers should extend `kontrolleur.Controller` by using `Controller.extend()`. Each prototype function becomes a controller action in the end.
