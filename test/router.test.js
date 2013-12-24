@@ -13,7 +13,9 @@ before(function () {
   new kontrolleur(app, {
     routes: __dirname + '/routes.js',
     controllerPath: __dirname + '/controllers',
-    controllerSuffix: '_controller'
+    controllerSuffix: '_controller',
+    helperPath: __dirname + '/helpers',
+    helperSuffix: '_helper'
   });
 
   app.listen(3030);
@@ -115,6 +117,24 @@ describe('kontrolleur', function () {
           .get('/before/success')
           .expect(200)
           .expect('ok')
+          .end(done);
+      });
+    });
+
+    describe('helpers', function () {
+      it('should be able to use application helpers', function (done) {
+        supertest(app)
+          .get('/helpers/application')
+          .expect(200)
+          .expect('application helper generated content')
+          .end(done);
+      });
+
+      it('should be able to use controller-specific helpers', function (done) {
+        supertest(app)
+          .get('/helpers/helpers')
+          .expect(200)
+          .expect('controller-specific helper generated content')
           .end(done);
       });
     });

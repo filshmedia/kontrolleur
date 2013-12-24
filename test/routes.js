@@ -12,5 +12,8 @@ module.exports = function (map) {
 
   map.get('/json', 'json#jsontest');
 
+  map.get('/helpers/application', 'helpers#application');
+  map.get('/helpers/helpers', 'helpers#helpers');
+
   map.get('/missing-action', 'index#missing-action');
 };
