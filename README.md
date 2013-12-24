@@ -63,6 +63,37 @@ var IndexController = Controller.extend({
 module.exports = IndexController;
 ```
 
+### Before filters
+
+You can override a controller's constructor and add before filters that will be executed before all actions or only specific actions:
+
+```js
+var Controller = require('kontrolleur').Controller;
+var UserController = Controller.extend({
+  constructor: function () {
+    Controller.apply(this, arguments); // call parent constructor
+
+    this.beforeFilter(function () {
+      this.res.end('fail - action will not be dispatched');
+    }, except: ['success']);
+
+    this.beforeFilter(function (next) {
+      next(); // pass the filter - action will be dispatched
+    }, only: ['success']);
+  },
+
+  success: function () {
+    this.res.send('success');
+  },
+
+  fail: function () {
+    this.res.send('success (this should not happen)');
+  }
+});
+
+module.exports = UserController;
+```
+
 ## License
 
 The MIT License (MIT)
