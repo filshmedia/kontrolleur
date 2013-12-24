@@ -2,7 +2,7 @@
   "name": "kontrolleur",
   "version": "0.0.1",
   "description": "routing and controller logic for express 3.x",
-  "main": "lib/kontrolleur.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "make test"
   },
@@ -20,5 +20,14 @@
   "bugs": {
     "url": "https://github.com/filshmedia/kontrolleur/issues"
   },
-  "homepage": "https://github.com/filshmedia/kontrolleur"
+  "homepage": "https://github.com/filshmedia/kontrolleur",
+  "dependencies": {
+    "async": "~0.2.9"
+  },
+  "devDependencies": {
+    "should": "~2.1.1",
+    "mocha": "~1.16.2",
+    "supertest": "~0.8.2",
+    "express": "~3.4.7"
+  }
 }
