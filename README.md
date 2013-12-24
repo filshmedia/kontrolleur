@@ -18,8 +18,12 @@ var app = express();
 
 new kontrolleur(app, {
   routes: __dirname + '/routes',
+
   controllerPath: __dirname + '/controllers',
-  controllerSuffix: '_controller'
+  controllerSuffix: '_controller',
+
+  helperPath: __dirname + '/helpers',
+  helperSuffix: '_helper'
 });
 
 app.listen(3030);
@@ -92,6 +96,20 @@ var UserController = Controller.extend({
 });
 
 module.exports = UserController;
+```
+
+## Helpers
+
+You can create application-wide and controller-specific helpers in the helpers folder you have defined. If you create a file called `helpers/index_helper.js` with the following content, you can use the `testHelper` in all views that are rendered by your `IndexController`:
+
+```js
+var IndexHelper = {
+  testHelper: function () {
+    return 'hello world';
+  }
+};
+
+module.exports = IndexHelper;
 ```
 
 ## License
