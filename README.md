@@ -12,17 +12,17 @@ Inside your express project, do:
 Then, instantiate `kontrolleur` like this:
 
 ```js
-  var kontrolleur = require('kontrolleur');
-  var express = require('express');
-  var app = express();
+var kontrolleur = require('kontrolleur');
+var express = require('express');
+var app = express();
 
-  new kontrolleur(app, {
-    routes: __dirname + '/routes',
-    controllerPath: __dirname + '/controllers',
-    controllerSuffix: '_controller'
-  });
+new kontrolleur(app, {
+  routes: __dirname + '/routes',
+  controllerPath: __dirname + '/controllers',
+  controllerSuffix: '_controller'
+});
 
-  app.listen(3030);
+app.listen(3030);
 ```
 
 ## Routes

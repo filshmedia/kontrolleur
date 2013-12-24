@@ -7,6 +7,9 @@ module.exports = function (map) {
   map.get('/view2', 'index#view2');
   map.get('/view3', 'index#view3');
 
+  map.get('/before/success', 'before#success');
+  map.get('/before/fail', 'before#fail');
+
   map.get('/json', 'json#jsontest');
 
   map.get('/missing-action', 'index#missing-action');

@@ -100,5 +100,23 @@ describe('kontrolleur', function () {
           .end(done);
       });
     });
+
+    describe('before filters', function () {
+      it('should not succeed', function (done) {
+        supertest(app)
+          .get('/before/fail')
+          .expect(200)
+          .expect('fail')
+          .end(done);
+      });
+
+      it('should succeed', function (done) {
+        supertest(app)
+          .get('/before/success')
+          .expect(200)
+          .expect('ok')
+          .end(done);
+      });
+    });
   });
 });
