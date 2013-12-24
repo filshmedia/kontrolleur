@@ -1,13 +1,13 @@
 'use strict';
 
-var kontrolleur = require('kontrolleur');
+var Kontrolleur = require('kontrolleur');
 var express = require('express');
 var app = express();
 
-app.use(new kontrolleur({
+new Kontrolleur(app, {
   routes: __dirname + '/routes',
   controllerPath: __dirname + '/controllers',
   controllerSuffix: '_controller'
-}));
+});
 
 app.listen(3030);
