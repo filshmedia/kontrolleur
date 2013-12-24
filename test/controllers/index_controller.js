@@ -3,7 +3,7 @@
 var Controller = require('../../').Controller;
 var IndexController = Controller.extend({
   index: function () {
-    this.res.send('test response');
+    this.send('test response');
   },
 
   view: function () {
