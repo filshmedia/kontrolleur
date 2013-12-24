@@ -4,6 +4,18 @@ var Controller = require('../../').Controller;
 var IndexController = Controller.extend({
   index: function () {
     this.res.send('test response');
+  },
+
+  view: function () {
+    this.render();
+  },
+
+  view2: function () {
+    this.render('index/view-two');
+  },
+
+  view3: function () {
+    this.render('view-three');
   }
 });
 
