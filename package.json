@@ -1,6 +1,6 @@
 {
   "name": "kontrolleur",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "routing and controller logic for express 3.x",
   "main": "lib/index.js",
   "scripts": {
