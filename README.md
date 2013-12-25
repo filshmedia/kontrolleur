@@ -42,8 +42,6 @@ module.exports = function (map) {
 
 ### map.controller
 
-**Needs tests**
-
 Next to all http methods, the `map` object also provides a `controller` method which finds all available actions of a controller and creates `get` routes for it:
 
 ```js

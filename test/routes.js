@@ -15,5 +15,7 @@ module.exports = function (map) {
   map.get('/helpers/application', 'helpers#application');
   map.get('/helpers/helpers', 'helpers#helpers');
 
+  map.controller('test');
+
   map.get('/missing-action', 'index#missing-action');
 };

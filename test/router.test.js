@@ -27,6 +27,11 @@ describe('kontrolleur', function () {
       app.routes.get.length.should.be.above(0);
       app.routes.get[0].path.should.equal('/');
     });
+
+    it('should correctly resolve map.controller directives', function () {
+      app.routes.get[9].path.should.equal('/test/index');
+      app.routes.get[10].path.should.equal('/test/test');
+    });
   });
 
   describe('dispatcher', function () {
