@@ -8,6 +8,17 @@ var TestController = Controller.extend({
 
   test: function () {
     this.send('test');
+  },
+
+  "render-locals": function () {
+    this.render({
+      local: "render locals"
+    });
+  },
+
+  "response-locals": function () {
+    this.res.locals.local = "response locals";
+    this.render();
   }
 });
 

@@ -143,5 +143,23 @@ describe('kontrolleur', function () {
           .end(done);
       });
     });
+
+    describe('locals', function () {
+      it('should be able to access locals passed to the render method', function (done) {
+        supertest(app)
+          .get('/test/render-locals')
+          .expect(200)
+          .expect('render locals')
+          .end(done);
+      });
+
+      it('should be able to access response locals when rendering', function (done) {
+        supertest(app)
+          .get('/test/response-locals')
+          .expect(200)
+          .expect('response locals')
+          .end(done);
+      });
+    });
   });
 });
