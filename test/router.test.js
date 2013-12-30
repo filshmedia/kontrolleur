@@ -29,8 +29,9 @@ describe('kontrolleur', function () {
     });
 
     it('should correctly resolve map.controller directives', function () {
-      app.routes.get[9].path.should.equal('/test/index');
-      app.routes.get[10].path.should.equal('/test/test');
+      var getRoutes = app.routes.get;
+      getRoutes[getRoutes.length - 4].path.should.equal('/test/index');
+      getRoutes[getRoutes.length - 3].path.should.equal('/test/test');
     });
   });
 
@@ -86,6 +87,14 @@ describe('kontrolleur', function () {
           .expect('view content 3')
           .end(done);
       });
+
+      it('should render the correct status code', function (done) {
+        supertest(app)
+          .get('/view3-500')
+          .expect(500)
+          .expect('view content 3')
+          .end(done);
+      });
     });
 
     describe('json rendering', function () {
@@ -103,6 +112,15 @@ describe('kontrolleur', function () {
           .get('/json?jsoncallback=test')
           .expect('Content-Type', 'application/json')
           .expect(200)
+          .expect('test({"hello":"world"})')
+          .end(done);
+      });
+
+      it('should render the correct status code', function (done) {
+        supertest(app)
+          .get('/json500?jsoncallback=test')
+          .expect('Content-Type', 'application/json')
+          .expect(500)
           .expect('test({"hello":"world"})')
           .end(done);
       });

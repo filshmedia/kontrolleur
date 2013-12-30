@@ -6,6 +6,12 @@ var JSONController = Controller.extend({
     this.json({
       hello: 'world'
     });
+  },
+
+  json500test: function () {
+    this.json({
+      hello: 'world'
+    }, 500);
   }
 });
 

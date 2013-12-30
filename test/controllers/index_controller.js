@@ -16,7 +16,11 @@ var IndexController = Controller.extend({
 
   view3: function () {
     this.render('view-three');
-  }
+  },
+
+  view3error: function () {
+    this.render('view-three', {}, 500);
+  },
 });
 
 module.exports = IndexController;
