@@ -11,6 +11,8 @@ module.exports = function (map) {
   map.get('/before/success', 'before#success');
   map.get('/before/fail', 'before#fail');
 
+  map.get('/multiple-before', 'multiple_before#test');
+
   map.get('/json', 'json#jsontest');
   map.get('/json500', 'json#json500test');
 

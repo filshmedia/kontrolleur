@@ -52,7 +52,7 @@ describe('kontrolleur', function () {
     });
   });
 
-  describe('controller', function () {
+  describe('controllers', function () {
     describe('plain text rendering', function () {
       it('should properly render plain text', function (done) {
         supertest(app)
@@ -138,6 +138,14 @@ describe('kontrolleur', function () {
       it('should succeed', function (done) {
         supertest(app)
           .get('/before/success')
+          .expect(200)
+          .expect('ok')
+          .end(done);
+      });
+
+      it('should run before filters in the right order', function (done) {
+        supertest(app)
+          .get('/multiple-before')
           .expect(200)
           .expect('ok')
           .end(done);
