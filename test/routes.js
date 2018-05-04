@@ -22,5 +22,11 @@ module.exports = function (map) {
   map.get('/missing-action', 'index#missing-action');
 
   map.controller('test');
+
+  map.namespace('/api', function (map) {
+    map.namespace('/v1', function (map) {
+      map.get('/view', 'api/v1/index#view')
+    });
+  });
 };
 

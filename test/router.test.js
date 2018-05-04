@@ -30,8 +30,8 @@ describe('kontrolleur', function () {
 
     it('should correctly resolve map.controller directives', function () {
       var getRoutes = app.routes.get;
-      getRoutes[getRoutes.length - 4].path.should.equal('/test/index');
-      getRoutes[getRoutes.length - 3].path.should.equal('/test/test');
+      getRoutes[getRoutes.length - 5].path.should.equal('/test/index');
+      getRoutes[getRoutes.length - 4].path.should.equal('/test/test');
     });
   });
 
@@ -151,6 +151,16 @@ describe('kontrolleur', function () {
           .end(done);
       });
     });
+
+    describe('namespaces', function () {
+      it('should correctly map routes and render view', function (done) {
+        supertest(app)
+          .get('/api/v1/view')
+          .expect(200)
+          .expect('nested namespace stuff')
+          .end(done);
+      })
+    })
 
     describe('helpers', function () {
       it('should be able to use application helpers', function (done) {
