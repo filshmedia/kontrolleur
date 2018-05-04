@@ -50,6 +50,20 @@ module.exports = function (map) {
 };
 ```
 
+### map.namespace
+
+The `map` object also provides a `namespace` method which calls the passed callback with a new `map` object that automatically prefixes all routes with the given string:
+
+```js
+module.exports = function (map) {
+  map.namespace('/api', function (map) {
+    map.namespace('/v1', function (map) {
+      map.get('books.json', 'api/v1/books#index');
+    });
+  });
+};
+```
+
 ## Controllers
 
 Your custom controllers should extend `kontrolleur.Controller` by using `Controller.extend()`. Each prototype function becomes a controller action in the end.
