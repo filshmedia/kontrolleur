@@ -2,8 +2,8 @@
 
 var Controller = require('../../').Controller;
 
-var successFilter = function (next) {
-  next();
+var successFilter = function () {
+  return Promise.resolve();
 };
 var failFilter = function () {
   return this.send('fail');

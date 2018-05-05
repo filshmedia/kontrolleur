@@ -20,6 +20,7 @@ module.exports = function (map) {
   map.get('/helpers/helpers', 'helpers#helpers');
 
   map.get('/missing-action', 'index#missing-action');
+  map.get('/async-error', 'index#asyncerror');
 
   map.controller('test');
 

@@ -21,6 +21,10 @@ var IndexController = Controller.extend({
   view3error: function () {
     this.render('view-three', {}, 500);
   },
+
+  asyncerror: function () {
+    return Promise.reject(new Error('This is an error'));
+  }
 });
 
 module.exports = IndexController;

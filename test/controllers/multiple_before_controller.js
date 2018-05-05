@@ -2,12 +2,13 @@
 
 var Controller = require('../../').Controller;
 
-var filterOne = function (next) {
+var filterOne = function () {
   this.res.send('ok');
+  return Promise.resolve();
 };
 
-var filterTwo = function (next) {
-  next()
+var filterTwo = function () {
+  return Promise.resolve();
 };
 
 var BeforeController = Controller.extend({

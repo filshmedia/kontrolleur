@@ -97,6 +97,18 @@ describe('kontrolleur', function () {
       });
     });
 
+    describe('async actions', function () {
+      describe('when throwing errors', function () {
+        it('should render a 500 error', function (done) {
+          supertest(app)
+            .get('/async-error')
+            .expect(500)
+            .expect(/^Error: This is an error/i)
+            .end(done);
+        })
+      })
+    })
+
     describe('json rendering', function () {
       it('should render json with the right content type', function (done) {
         supertest(app)

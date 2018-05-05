@@ -79,6 +79,29 @@ var IndexController = Controller.extend({
 module.exports = IndexController;
 ```
 
+
+### Promise-backed actions
+
+Starting with 0.2.0, kontrolleur supports Promise-backed actions. Rejected promises will automatically render a 500 Internal server error.
+
+```js
+var Controller = require('kontrolleur').Controller;
+var IndexController = Controller.extend({
+  success: function () {
+    var self = this;
+    return User.find(1)
+      .then(function (user) {
+        self.json(user)
+      })
+  },
+  failure: function () {
+    return Promise.reject(new Error('Error message'))
+  }
+});
+
+module.exports = IndexController;
+```
+
 ### Before filters
 
 You can override a controller's constructor and add before filters that will be executed before all actions or only specific actions:
